@@ -25,7 +25,7 @@ Edit objek `CONFIG` di bagian bawah `index.html`. Nilai `null` otomatis tampil s
 | `groom.parents` / `bride.parents` | `"Putra dari Bapak … & Ibu …"` |
 | `story[].when` / `text` | tahun dan cerita tiap bab |
 | `rsvp.maxGuests` | jumlah tamu maksimal per undangan (samakan dengan env `MAX_GUESTS`) |
-| `music.src` | isi dengan path MP3 berlisensi jika ingin mengganti skor bawaan |
+| `music.src` | `music/beautiful-in-white.mp3` — taruh file MP3 di folder `music/`. Jika file tidak ada, skor orisinal diputar otomatis. `music.start` = detik mulai lagu |
 
 Setiap push ke branch `main` otomatis ter-deploy oleh Vercel.
 
