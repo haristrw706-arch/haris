@@ -25,7 +25,8 @@ Edit objek `CONFIG` di bagian bawah `index.html`. Nilai `null` otomatis tampil s
 | `groom.parents` / `bride.parents` | `"Putra dari Bapak … & Ibu …"` |
 | `story[].when` / `text` | tahun dan cerita tiap bab |
 | `rsvp.maxGuests` | jumlah tamu maksimal per undangan (samakan dengan env `MAX_GUESTS`) |
-| `music.src` | `music/beautiful-in-white.mp3` — taruh file MP3 di folder `music/`. Jika file tidak ada, skor orisinal diputar otomatis. `music.start` = detik mulai lagu |
+| `music.youtube` | ID video YouTube lagu latar (sekarang `JmIUdR_fob0`, Beautiful In White sax cover oleh Dori Wirawan). `music.start` = detik mulai. Jika video gagal diputar, skor orisinal diputar otomatis |
+| `music.src` | alternatif: path MP3 sendiri (kosongkan `youtube`) |
 
 Setiap push ke branch `main` otomatis ter-deploy oleh Vercel.
 
