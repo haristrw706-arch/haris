@@ -523,7 +523,7 @@ footer{background:var(--night);color:#7d6f60;padding-block:28px calc(90px + env(
       <code id="oLink" hidden></code>
       <div class="row" id="oActs" hidden><button class="btn" type="button" id="oCopy">Salin</button><a class="btn solid" id="oWa" href="#" target="_blank" rel="noopener">Kirim via WhatsApp</a></div>
       <div><span class="eyebrow" style="color:var(--gold-ink)">Rekap RSVP</span> <span id="oSum" class="mono" style="color:var(--on-light-dim)"></span></div>
-      <div class="tbl"><table><thead><tr><th>Nama</th><th>Hadir</th><th>Jml</th><th>Pesan</th></tr></thead><tbody id="oRows"><tr><td colspan="4" style="color:var(--on-light-dim)">Belum ada konfirmasi.</td></tr></tbody></table></div>
+      <div class="tbl"><table><thead><tr><th>Nama</th><th>Hadir</th><th>Jml</th><th>Pesan</th><th></th></tr></thead><tbody id="oRows"><tr><td colspan="4" style="color:var(--on-light-dim)">Belum ada konfirmasi.</td></tr></tbody></table></div>
     </div>
   </div>
 </section>
@@ -1024,7 +1024,9 @@ function renderWishes(docs){
     const n = document.createElement("span"); n.className = "who"; n.textContent = clean(v.name, 60) || "Tamu";
     const m = document.createElement("p"); m.className = "msg"; m.textContent = clean(v.msg, 500);
     const t = document.createElement("span"); t.className = "t"; t.textContent = v.t ? new Intl.DateTimeFormat("id-ID", { day: "numeric", month: "short", year: "numeric" }).format(new Date(v.t)) : "";
-    a.append(n, m, t); w.append(a);
+    a.append(n, m, t);
+    if (API.admin && v.id) { const del = document.createElement("button"); del.type = "button"; del.className = "btn"; del.style.cssText = "justify-self:start;min-height:34px;padding:0 14px;font-size:.6rem;margin-top:6px"; del.textContent = "Hapus ucapan"; del.onclick = () => adminDelete("guestbook", v.id, del); a.append(del); }
+    w.append(a);
   });
 }
 renderWishes([]);
@@ -1045,9 +1047,19 @@ async function adminPanel(key){
   const r = await fetch("/api/rsvp?key=" + encodeURIComponent(key), { cache: "no-store" }).catch(() => null);
   if (!r || !r.ok) { toast("Kunci admin tidak valid"); return; }
   const j = await r.json();
+  API.admin = key; renderWishes(WISHES);
   ownerUI();
   renderRsvps((j.items || []).map(v => ({ data: () => v })));
   $("#owner").scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+}
+async function adminDelete(kind, id, btn){
+  if (btn.dataset.armed !== "1") { btn.dataset.armed = "1"; btn.textContent = "Yakin? Ketuk lagi"; setTimeout(() => { if (btn.isConnected) { btn.dataset.armed = ""; btn.textContent = kind === "rsvp" ? "Hapus" : "Hapus ucapan"; } }, 4000); return; }
+  btn.disabled = true;
+  const r = await fetch(`/api/${kind}?key=${encodeURIComponent(API.admin)}&id=${encodeURIComponent(id)}`, { method: "DELETE" }).catch(() => null);
+  if (!r || !r.ok) { btn.disabled = false; toast("Gagal menghapus. Coba lagi."); return; }
+  toast("Terhapus");
+  if (kind === "guestbook") { WISHES = WISHES.filter(w => w.id !== id); renderWishes(WISHES); }
+  else btn.closest("tr").remove();
 }
 function ownerUI(){
   $("#owner").hidden = false;
@@ -1062,7 +1074,9 @@ function ownerUI(){
 function renderRsvps(docs){
   const tb = $("#oRows"); tb.textContent = ""; let yes = 0, no = 0, ppl = 0;
   docs.forEach(d => { const v = d.data() || {}; if (v.attend === "yes") { yes++; ppl += +v.guests || 1; } else no++;
-    const tr = document.createElement("tr"); [v.name, v.attend === "yes" ? "Hadir" : "Tidak", v.attend === "yes" ? v.guests : "–", v.note || ""].forEach(x => { const td = document.createElement("td"); td.textContent = x ?? ""; tr.append(td); }); tb.append(tr); });
+    const tr = document.createElement("tr"); [v.name, v.attend === "yes" ? "Hadir" : "Tidak", v.attend === "yes" ? v.guests : "–", v.note || ""].forEach(x => { const td = document.createElement("td"); td.textContent = x ?? ""; tr.append(td); });
+    if (API.admin && v.id) { const td = document.createElement("td"); const b = document.createElement("button"); b.type = "button"; b.className = "btn"; b.style.cssText = "min-height:30px;padding:0 10px;font-size:.56rem"; b.textContent = "Hapus"; b.onclick = () => adminDelete("rsvp", v.id, b); td.append(b); tr.append(td); }
+    tb.append(tr); });
   if (!docs.length) { const tr = document.createElement("tr"); const td = document.createElement("td"); td.colSpan = 4; td.textContent = "Belum ada konfirmasi."; td.style.color = "var(--on-light-dim)"; tr.append(td); tb.append(tr); }
   $("#oSum").textContent = `${yes} hadir (${ppl} orang) · ${no} berhalangan`;
 }

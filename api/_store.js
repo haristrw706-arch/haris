@@ -1,5 +1,6 @@
 // Shared helpers: private Vercel Blob storage, validation, basic abuse protection.
-import { put, list, get } from "@vercel/blob";
+import { put, list, get, del } from "@vercel/blob";
+import { timingSafeEqual } from "node:crypto";
 
 const ACCESS = "private";
 const hits = new Map();
@@ -58,7 +59,8 @@ export async function readAll(prefix, max = 300) {
       try {
         const r = await get(b.pathname, { access: ACCESS, useCache: false });
         if (!r || r.statusCode !== 200) return null;
-        return await new Response(r.stream).json();
+        const j = await new Response(r.stream).json();
+        return { ...j, id: b.pathname.replace(/^.*\//, "").replace(/\.json$/, "") };
       } catch { return null; }
     })
   );
@@ -69,4 +71,12 @@ export function send(res, status, data, cache = "no-store") {
   res.setHeader("Cache-Control", cache);
   res.setHeader("X-Content-Type-Options", "nosniff");
   res.status(status).json(data);
+}
+
+export async function remove(pathname) { await del(pathname); }
+
+export function keyOk(k) {
+  const real = process.env.ADMIN_KEY || "";
+  if (!real || typeof k !== "string" || k.length !== real.length) return false;
+  return timingSafeEqual(Buffer.from(k), Buffer.from(real));
 }

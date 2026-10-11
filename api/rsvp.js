@@ -1,16 +1,10 @@
 // POST /api/rsvp { rid, name, attend: "yes"|"no", guests, note, website? } -> { ok }
 //   rid = random id kept in the guest's browser, so a guest can update their own answer.
 // GET  /api/rsvp?key=ADMIN_KEY -> { items } (couple only; key lives in env ADMIN_KEY)
-import { timingSafeEqual } from "node:crypto";
-import { clean, body, limited, sameOrigin, save, readAll, send } from "./_store.js";
+// DELETE /api/rsvp?key=ADMIN_KEY&id=<rid>
+import { clean, body, limited, sameOrigin, save, readAll, send, remove, keyOk } from "./_store.js";
 
 const MAX_GUESTS = Number(process.env.MAX_GUESTS || 2);
-
-function keyOk(k) {
-  const real = process.env.ADMIN_KEY || "";
-  if (!real || typeof k !== "string" || k.length !== real.length) return false;
-  return timingSafeEqual(Buffer.from(k), Buffer.from(real));
-}
 
 export default async function handler(req, res) {
   try {
@@ -32,7 +26,14 @@ export default async function handler(req, res) {
       await save(`rsvp/${rid}.json`, { name, attend, guests, note, t: Date.now() }, true);
       return send(res, 201, { ok: true });
     }
-    res.setHeader("Allow", "GET, POST");
+    if (req.method === "DELETE") {
+      if (!keyOk(req.query?.key)) return send(res, 401, { error: "unauthorized" });
+      const id = String(req.query?.id || "");
+      if (!/^[a-z0-9]{16,40}$/.test(id)) return send(res, 400, { error: "invalid" });
+      await remove(`rsvp/${id}.json`);
+      return send(res, 200, { ok: true });
+    }
+    res.setHeader("Allow", "GET, POST, DELETE");
     return send(res, 405, { error: "method_not_allowed" });
   } catch (e) {
     console.error("rsvp", e);
