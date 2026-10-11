@@ -1,0 +1,1086 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Haris &amp; Tika</title>
+<meta name="description" content="Ever After — undangan pernikahan Haris &amp; Tika.">
+<meta property="og:title" content="Haris &amp; Tika — Ever After">
+<meta property="og:description" content="One Love. One Story. Forever Begins Here.">
+<meta property="og:image" content="https://haris-tika.vercel.app/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://haris-tika.vercel.app/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Ccircle cx=%2232%22 cy=%2232%22 r=%2230%22 fill=%22%239a5562%22/%3E%3Ctext x=%2232%22 y=%2241%22 font-family=%22Georgia,serif%22 font-style=%22italic%22 font-size=%2226%22 fill=%22%23f0d9b0%22 text-anchor=%22middle%22%3EHT%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#110d0b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=DM+Mono:wght@400&family=Jost:wght@300;400;500&family=Oswald:wght@300;400&family=Pinyon+Script&display=swap">
+<style>
+/* Layout concept: a film in eight scenes — dark cinema frames alternating with ivory "paper" scenes; poster hero, ticket-stub details, contact-sheet gallery, end-credits close. Single committed look (dark-first). */
+:root{
+  --night:#100c0a; --espresso:#1b1511; --espresso-2:#271f1a; --line-dk:rgba(200,169,116,.22);
+  --ivory:#f3ece1; --paper:#ebe1d1; --line-lt:rgba(60,44,30,.16);
+  --champagne:#c9aa76; --gold-ink:#7a5f33; --rose:#9a5562; --rose-ink:#7d3f4b;
+  --on-dark:#f3ece1; --on-dark-dim:#b8aa97; --on-light:#221a15; --on-light-dim:#5f5146;
+  --f-display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --f-script:"Pinyon Script","Snell Roundhand","Apple Chancery",cursive;
+  --f-body:"Jost","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --f-mono:"DM Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --f-bill:"Oswald","Arial Narrow","Roboto Condensed",sans-serif;
+  --ease-film:cubic-bezier(.77,0,.18,1); --ease-out:cubic-bezier(.16,1,.3,1);
+  --gutter:clamp(16px,5vw,56px);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+body{background:var(--night);color:var(--on-dark);font-family:var(--f-body);font-weight:300;font-size:16px;line-height:1.65;overflow-x:hidden}
+body.locked{overflow:hidden;height:100%}
+img{max-width:100%;display:block}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--champagne);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.mono{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase}
+.eyebrow{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--champagne)}
+.light .eyebrow{color:var(--gold-ink)}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0;line-height:1.05}
+p{margin:0}
+.ph{font-style:italic;color:var(--on-dark-dim);border-bottom:1px dashed currentColor;opacity:.85}
+.light .ph{color:var(--on-light-dim)}
+.wrap{width:100%;max-width:1180px;margin-inline:auto;padding-inline:var(--gutter)}
+section{position:relative}
+.dark{background:var(--espresso);color:var(--on-dark)}
+.night{background:var(--night);color:var(--on-dark)}
+.light{background:var(--ivory);color:var(--on-light)}
+.paper{background:var(--paper);color:var(--on-light)}
+
+/* film grain overlay */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.07;mix-blend-mode:overlay;background-size:180px 180px;animation:grain 1s steps(6) infinite}
+@keyframes grain{0%{background-position:0 0}20%{background-position:-37px 21px}40%{background-position:44px -63px}60%{background-position:-18px -29px}80%{background-position:71px 13px}100%{background-position:0 0}}
+
+/* reveal system (only armed by JS) */
+.armed .rv{opacity:0;transform:translateY(28px);transition:opacity 1.1s var(--ease-out),transform 1.1s var(--ease-out)}
+.armed .rv.in{opacity:1;transform:none}
+.armed .rv-mask{clip-path:inset(12% 12% 12% 12%);transition:clip-path 1.6s var(--ease-film)}
+.armed .rv-mask.in{clip-path:inset(0 0 0 0)}
+.armed .rv-mask img{transform:scale(1.18);transition:transform 2.2s var(--ease-out)}
+.armed .rv-mask.in img{transform:scale(1)}
+
+/* ============ SCENE 01 · COVER ============ */
+#cover{position:fixed;inset:0;z-index:100;background:radial-gradient(120% 80% at 50% 30%,#2a201a 0%,var(--night) 70%);display:grid;place-items:center;overflow:hidden;padding:24px 16px;transition:opacity .9s ease .2s,visibility 0s linear 1.1s}
+#cover.gone{opacity:0;visibility:hidden}
+.cover-top,.cover-bot{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space-between;padding:calc(18px + env(safe-area-inset-top,0px)) var(--gutter) 0;color:var(--on-dark-dim)}
+.cover-bot{top:auto;bottom:0;padding:0 var(--gutter) calc(18px + env(safe-area-inset-bottom,0px))}
+.cover-inner{display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center;max-width:420px;width:100%}
+.env{position:relative;width:min(300px,78vw);aspect-ratio:1.45;perspective:900px;margin-top:8px}
+.env-back{position:absolute;inset:0;background:linear-gradient(160deg,#efe6d7,#ddd0bb);border-radius:3px;box-shadow:0 30px 60px -20px rgba(0,0,0,.7),0 0 0 1px rgba(201,170,118,.35) inset}
+.env-letter{position:absolute;left:7%;right:7%;top:8%;bottom:10%;background:var(--ivory);border-radius:2px;display:grid;place-items:start center;padding-top:6%;transition:transform 1.1s var(--ease-film) .55s;box-shadow:0 0 0 1px rgba(122,95,51,.18) inset}
+.env-letter span{font-family:var(--f-script);font-size:clamp(1.6rem,7vw,2.1rem);color:var(--gold-ink)}
+.env-front{position:absolute;inset:0;border-radius:3px;background:linear-gradient(200deg,#e9dfcd,#d6c7af);clip-path:polygon(0 30%,50% 64%,100% 30%,100% 100%,0 100%)}
+.env-flap{position:absolute;left:0;right:0;top:0;height:66%;transform-origin:top center;transition:transform .9s var(--ease-film) .25s;z-index:3;filter:drop-shadow(0 6px 8px rgba(0,0,0,.25))}
+.env-flap::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#e4d8c3,#d2c2a8);clip-path:polygon(0 0,100% 0,50% 100%)}
+.seal{position:absolute;left:50%;top:58%;width:74px;height:74px;transform:translate(-50%,-50%);z-index:4}
+.seal-half{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 35% 30%,#b46a76 0%,var(--rose) 38%,#5a2730 100%);box-shadow:0 4px 10px rgba(0,0,0,.45),inset 0 0 0 4px rgba(0,0,0,.12),inset 0 0 0 7px rgba(255,255,255,.05);transition:transform .7s var(--ease-film),opacity .7s ease}
+.seal-half.l{clip-path:polygon(0 0,52% 0,46% 40%,54% 60%,48% 100%,0 100%)}
+.seal-half.r{clip-path:polygon(52% 0,100% 0,100% 100%,48% 100%,54% 60%,46% 40%)}
+.seal-mono{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-display);font-style:italic;font-size:1.45rem;color:#f0d9b0;text-shadow:0 1px 0 rgba(0,0,0,.4);pointer-events:none;transition:opacity .3s}
+.opening .seal-half.l{transform:translate(-40px,30px) rotate(-28deg);opacity:0}
+.opening .seal-half.r{transform:translate(40px,30px) rotate(28deg);opacity:0}
+.opening .seal-mono{opacity:0}
+.opening .env-flap{transform:rotateX(180deg);z-index:1}
+.opening .env-letter{transform:translateY(-46%)}
+.to-label{color:var(--on-dark-dim)}
+.guest{font-family:var(--f-display);font-size:clamp(1.5rem,6vw,2rem);line-height:1.15;color:var(--on-dark);min-height:1.2em}
+.cover-names{font-family:var(--f-display);font-size:clamp(1rem,4vw,1.15rem);letter-spacing:.3em;text-transform:uppercase;color:var(--champagne)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;border-radius:999px;border:1px solid var(--champagne);background:transparent;color:var(--on-dark);font-family:var(--f-mono);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:background .4s,color .4s,transform .4s var(--ease-out)}
+.btn:hover{background:var(--champagne);color:var(--night)}
+.btn:active{transform:scale(.97)}
+.btn.solid{background:var(--champagne);color:var(--night)}
+.btn.solid:hover{background:var(--ivory)}
+.light .btn,.paper .btn{border-color:var(--gold-ink);color:var(--on-light)}
+.light .btn:hover,.paper .btn:hover{background:var(--on-light);color:var(--ivory);border-color:var(--on-light)}
+.light .btn.solid,.paper .btn.solid{background:var(--on-light);color:var(--ivory);border-color:var(--on-light)}
+.light .btn.solid:hover,.paper .btn.solid:hover{background:var(--rose-ink);border-color:var(--rose-ink)}
+.btn[aria-disabled="true"]{opacity:.45;cursor:not-allowed;pointer-events:none}
+.open-btn{position:relative;overflow:hidden}
+.open-btn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,240,210,.35) 50%,transparent 70%);transform:translateX(-120%);animation:sheen 3.6s ease-in-out 1.2s infinite}
+@keyframes sheen{0%,60%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.ornament{width:120px;height:14px;color:var(--champagne)}
+.ornament path{stroke-dasharray:140;stroke-dashoffset:140;animation:draw 2.4s var(--ease-out) .4s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* ============ FILM LEADER ============ */
+#leader{position:fixed;inset:0;z-index:99;background:#151110;display:grid;place-items:center;opacity:0;visibility:hidden;transition:opacity .35s}
+#leader.on{opacity:1;visibility:visible}
+.leader-ring{position:relative;width:min(62vw,300px);aspect-ratio:1;border-radius:50%;border:2px solid rgba(243,236,225,.55);display:grid;place-items:center;overflow:hidden}
+.leader-ring::before{content:"";position:absolute;inset:0;background:conic-gradient(rgba(201,170,118,.35) var(--sweep,0deg),transparent 0)}
+.leader-ring::after{content:"";position:absolute;inset:12%;border-radius:50%;border:1px solid rgba(243,236,225,.35)}
+.leader-x,.leader-y{position:absolute;background:rgba(243,236,225,.35)}
+.leader-x{left:0;right:0;top:50%;height:1px}
+.leader-y{top:0;bottom:0;left:50%;width:1px}
+.leader-num{position:relative;font-family:var(--f-display);font-size:clamp(5rem,26vw,9rem);color:var(--ivory);line-height:1}
+
+/* ============ SCENE 02 · HERO ============ */
+#hero{min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:var(--night)}
+.hero-media{position:absolute;inset:0;overflow:hidden;clip-path:inset(0 0 0 0)}
+.hero-media img{width:100%;height:115%;object-fit:cover;object-position:50% 32%;will-change:transform;filter:saturate(.92) contrast(1.04)}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,12,10,.55) 0%,rgba(16,12,10,0) 26%,rgba(16,12,10,0) 42%,rgba(16,12,10,.78) 72%,var(--night) 100%)}
+@media (max-width:899px){.hero-media{bottom:24%}}
+@media (min-width:900px){.hero-media{left:40%}.hero-media img{height:110%;object-position:50% 50%}.hero-media::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--night) 0%,rgba(16,12,10,.55) 18%,rgba(16,12,10,0) 45%)}.hero-copy{padding-bottom:110px}}
+.bar{position:absolute;left:0;right:0;height:13vh;background:#000;z-index:5;transition:transform 1.6s var(--ease-film)}
+.bar.t{top:0}.bar.b{bottom:0}
+.played .bar.t{transform:translateY(-100%)}.played .bar.b{transform:translateY(100%)}
+.pre .hero-media{clip-path:inset(46% 0 46% 0)}
+.pre .hero-media img{transform:scale(1.22)}
+.hero-media{transition:clip-path 2s var(--ease-film)}
+.hero-media img{transition:transform 3.2s var(--ease-out)}
+.hero-top{position:absolute;top:calc(20px + env(safe-area-inset-top,0px));left:0;right:0;z-index:3;display:flex;justify-content:space-between;padding-inline:var(--gutter);color:rgba(243,236,225,.8)}
+.hero-copy{position:relative;z-index:3;width:100%;padding:0 var(--gutter) calc(104px + env(safe-area-inset-bottom,0px));max-width:1180px;margin-inline:auto}
+.hero-tag{font-family:var(--f-display);font-style:italic;font-size:clamp(1rem,3.6vw,1.3rem);color:var(--on-dark-dim);margin-bottom:6px}
+.names{font-family:var(--f-display);font-weight:400;line-height:.86;letter-spacing:-.02em;font-size:clamp(4.4rem,23vw,12rem)}
+.names .n1{display:block}
+.names .n2{display:block;padding-left:22%}
+.names .amp{font-family:var(--f-script);font-size:.48em;color:var(--champagne);letter-spacing:0;display:inline-block;transform:translateY(-.18em);margin-right:.12em}
+.ch{display:inline-block;transform:translateY(105%);opacity:0;transition:transform 1.2s var(--ease-out),opacity 1.2s ease}
+.names .line{display:block;overflow:hidden;padding-bottom:.06em}
+.played .ch{transform:none;opacity:1}
+.billing{margin-top:22px;font-family:var(--f-bill);font-weight:300;text-transform:uppercase;font-size:.62rem;letter-spacing:.12em;line-height:1.35;color:rgba(243,236,225,.62);max-width:520px;text-wrap:balance}
+.billing b{font-weight:400;color:var(--on-dark)}
+.hero-date{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:18px}
+.hero-date .when{font-family:var(--f-bill);font-weight:400;font-size:1.05rem;letter-spacing:.32em;text-transform:uppercase;color:var(--champagne)}
+.fade-late{opacity:0;transition:opacity 1.4s ease 1.6s}
+.played .fade-late{opacity:1}
+.scroll-cue{position:absolute;right:var(--gutter);bottom:calc(110px + env(safe-area-inset-bottom,0px));z-index:3;writing-mode:vertical-rl;color:var(--on-dark-dim);display:flex;align-items:center;gap:10px}
+.scroll-cue i{display:block;width:1px;height:46px;background:linear-gradient(var(--champagne),transparent);animation:cue 2.4s ease-in-out infinite;transform-origin:top}
+@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+
+/* ============ SCENE HEADINGS ============ */
+.scene-head{display:grid;gap:14px;margin-bottom:clamp(36px,7vw,72px)}
+.scene-head h2{font-size:clamp(2.3rem,8.5vw,4.6rem)}
+.scene-head h2 em{font-family:var(--f-script);font-style:normal;color:var(--champagne);font-size:1.12em;letter-spacing:0}
+.light .scene-head h2 em,.paper .scene-head h2 em{color:var(--rose-ink)}
+.scene-head p{max-width:56ch;color:var(--on-dark-dim)}
+.light .scene-head p,.paper .scene-head p{color:var(--on-light-dim)}
+.pad{padding-block:clamp(80px,14vw,160px)}
+
+/* ============ SCENE 03 · STORY ============ */
+.story-list{display:grid;gap:clamp(64px,12vw,140px)}
+.chapter{display:grid;grid-template-columns:1fr;gap:22px;align-items:center}
+.chapter figure{margin:0;position:relative;overflow:hidden;border-radius:2px;max-width:100%}
+.chapter figure img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.chapter .frame-no{position:absolute;left:12px;bottom:10px;color:rgba(243,236,225,.85);font-family:var(--f-mono);font-size:.64rem;letter-spacing:.2em}
+.chapter .txt{display:grid;gap:12px;min-width:0}
+.chapter h3{font-size:clamp(1.9rem,6.5vw,3rem)}
+.chapter .when{color:var(--champagne)}
+.chapter p.body{color:var(--on-dark-dim);max-width:44ch}
+@media (min-width:820px){
+  .chapter{grid-template-columns:1.05fr 1fr;gap:clamp(40px,6vw,96px)}
+  .chapter:nth-child(even) figure{order:2}
+  .chapter:nth-child(even) .txt{justify-self:end}
+  .chapter:nth-child(odd) figure{margin-top:-40px}
+}
+
+/* ============ SCENE 04 · VOW ============ */
+#vow .quote{font-family:var(--f-display);font-style:italic;font-size:clamp(1.7rem,5.6vw,3rem);line-height:1.2;max-width:22ch;text-wrap:balance}
+#vow .quote::before{content:"\201C";display:block;font-family:var(--f-display);font-style:normal;font-size:3.4em;line-height:.6;color:var(--rose);height:.45em}
+.couple{display:grid;grid-template-columns:1fr;gap:28px;margin-top:clamp(48px,8vw,90px)}
+.person{display:grid;gap:8px;padding-top:22px;border-top:1px solid var(--line-lt);min-width:0}
+.person .role{color:var(--gold-ink)}
+.person .full{font-family:var(--f-display);font-size:clamp(1.8rem,6vw,2.6rem);line-height:1.08}
+.person .parents{color:var(--on-light-dim)}
+.couple .and{font-family:var(--f-script);font-size:3.2rem;color:var(--rose-ink);line-height:1;align-self:center;justify-self:center}
+@media (min-width:820px){.couple{grid-template-columns:1fr auto 1fr;gap:40px}.person:last-child{text-align:right}}
+.countdown{margin-top:clamp(56px,9vw,100px);display:grid;gap:18px}
+.cd-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(8px,2vw,18px);max-width:640px}
+.cd-cell{background:var(--on-light);color:var(--ivory);border-radius:3px;padding:16px 6px 12px;text-align:center;position:relative;overflow:hidden}
+.cd-cell::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.45)}
+.cd-num{display:block;font-family:var(--f-display);font-size:clamp(2rem,9vw,3.4rem);line-height:1;font-variant-numeric:tabular-nums}
+.cd-lbl{display:block;margin-top:8px;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:#cbbba5}
+.cd-note{color:var(--on-light-dim);font-size:.92rem;max-width:52ch}
+.cd-num.tick{animation:tick .5s var(--ease-out)}
+@keyframes tick{0%{transform:translateY(-30%);opacity:.2}100%{transform:none;opacity:1}}
+
+/* ============ SCENE 05 · DETAILS (tickets) ============ */
+.tickets{display:grid;grid-template-columns:1fr;gap:28px}
+@media (min-width:820px){.tickets{grid-template-columns:1fr 1fr}}
+.ticket{position:relative;display:grid;grid-template-columns:1fr;background:var(--ivory);color:var(--on-light);border-radius:6px;min-width:0;
+  -webkit-mask:radial-gradient(circle 13px at 0 66%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 13px at 100% 66%,transparent 98%,#000) right/51% 100% no-repeat;
+          mask:radial-gradient(circle 13px at 0 66%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 13px at 100% 66%,transparent 98%,#000) right/51% 100% no-repeat}
+.t-main{padding:26px 24px 22px;display:grid;gap:16px}
+.t-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.t-head .admit{color:var(--rose-ink)}
+.t-title{font-family:var(--f-display);font-size:clamp(2.1rem,7vw,2.8rem)}
+.t-rows{display:grid;gap:12px}
+.t-row{display:grid;grid-template-columns:76px 1fr;gap:12px;align-items:baseline}
+.t-row dt{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-ink)}
+.t-row dd{margin:0;font-size:1.02rem;font-weight:400;min-width:0;overflow-wrap:anywhere}
+.t-stub{border-top:2px dashed rgba(60,44,30,.28);padding:18px 24px 24px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.t-stub .btn{min-height:44px;padding:0 18px;font-size:.66rem;border-color:var(--gold-ink);color:var(--on-light)}
+.t-stub .btn:hover{background:var(--on-light);color:var(--ivory)}
+.t-stub .btn.solid{background:var(--on-light);color:var(--ivory);border-color:var(--on-light)}
+.t-stub .btn.solid:hover{background:var(--rose-ink)}
+.t-code{margin-left:auto;font-family:var(--f-mono);font-size:.6rem;letter-spacing:.2em;color:var(--on-light-dim)}
+.dress{margin-top:36px;display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;color:var(--on-dark-dim);font-size:.95rem}
+
+/* ============ SCENE 06 · GALLERY (contact sheet) ============ */
+#gallery{background:#0b0908}
+.sheet{position:relative;background:#161210;padding:30px 12px;border-radius:2px}
+.sheet::before,.sheet::after{content:"";position:absolute;left:0;right:0;height:14px;background:radial-gradient(ellipse 5px 4px at 50% 50%,#0b0908 96%,transparent) 0 0/22px 14px repeat-x}
+.sheet::before{top:8px}.sheet::after{bottom:8px}
+.frames{columns:2;column-gap:10px}
+@media (min-width:700px){.frames{columns:3}}
+@media (min-width:1050px){.frames{columns:4}}
+.frm{break-inside:avoid;margin:0 0 10px;position:relative;cursor:zoom-in;border:0;padding:0;background:#000;display:block;width:100%;overflow:hidden}
+.frm img{width:100%;height:auto;transition:transform 1s var(--ease-out),filter .6s;filter:saturate(.85) sepia(.08)}
+.frm:hover img,.frm:focus-visible img{transform:scale(1.04);filter:none}
+.frm .edge{position:absolute;left:8px;bottom:6px;font-family:var(--f-mono);font-size:.56rem;letter-spacing:.16em;color:#e9b55a;text-shadow:0 1px 2px rgba(0,0,0,.8)}
+.sheet-mark{display:flex;justify-content:space-between;color:#9c7d4d;margin:6px 4px 12px;flex-wrap:wrap;gap:8px}
+
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:120;background:rgba(10,8,7,.96);display:grid;grid-template-rows:auto 1fr auto;opacity:0;visibility:hidden;transition:opacity .4s,visibility 0s linear .4s}
+#lb.on{opacity:1;visibility:visible;transition:opacity .4s}
+.lb-top,.lb-bot{display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top,0px)) var(--gutter) 12px;color:var(--on-dark-dim)}
+.lb-bot{padding:12px var(--gutter) calc(16px + env(safe-area-inset-bottom,0px));justify-content:center;gap:14px}
+.lb-stage{position:relative;display:grid;place-items:center;overflow:hidden;padding:0 12px;touch-action:pan-y}
+.lb-stage img{max-height:78svh;max-width:100%;width:auto;object-fit:contain;transition:opacity .35s,transform .45s var(--ease-out)}
+.lb-stage img.swap{opacity:0;transform:scale(.97)}
+.icon-btn{width:48px;height:48px;border-radius:50%;border:1px solid var(--line-dk);background:rgba(27,21,17,.7);color:var(--on-dark);display:grid;place-items:center;cursor:pointer;transition:background .3s,border-color .3s}
+.icon-btn:hover{border-color:var(--champagne);background:var(--espresso-2)}
+.icon-btn svg{width:18px;height:18px}
+
+/* ============ SCENE 07 · GUEST ============ */
+.guest-grid{display:grid;grid-template-columns:1fr;gap:clamp(48px,7vw,80px)}
+@media (min-width:900px){.guest-grid{grid-template-columns:1fr 1fr}}
+.card-form{display:grid;gap:16px;min-width:0}
+.card-form h3{font-size:clamp(1.8rem,5vw,2.4rem)}
+.field{display:grid;gap:6px}
+.field label,.field legend{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-ink)}
+.field input,.field select,.field textarea{width:100%;border:0;border-bottom:1px solid rgba(34,26,21,.35);background:transparent;padding:10px 2px;font-size:1.02rem;font-weight:400;border-radius:0;color:var(--on-light);transition:border-color .3s}
+.field select{background:transparent}
+.field select option{color:#222;background:#fff}
+.field textarea{resize:vertical;min-height:96px;line-height:1.5}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-bottom-color:var(--rose-ink)}
+.field .err{color:#9b2d2d;font-size:.84rem;min-height:0}
+fieldset.field{border:0;padding:0;margin:0}
+.choice{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.choice label{font-family:var(--f-body);font-size:.95rem;letter-spacing:0;text-transform:none;color:var(--on-light);display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(34,26,21,.25);border-radius:999px;padding:9px 16px;cursor:pointer;transition:background .3s,border-color .3s,color .3s}
+.choice input{position:absolute;opacity:0;pointer-events:none}
+.choice input:checked+span{font-weight:500}
+.choice label:has(input:checked){background:var(--on-light);color:var(--ivory);border-color:var(--on-light)}
+.choice label:has(input:focus-visible){outline:2px solid var(--rose-ink);outline-offset:2px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.status{font-size:.92rem;color:var(--on-light-dim);min-height:1.4em}
+.status.ok{color:#2f5b3a}.status.bad{color:#9b2d2d}
+.mode{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-light-dim)}
+.mode i{width:7px;height:7px;border-radius:50%;background:#b9ab98}
+.mode.on i{background:#4f8a5b;box-shadow:0 0 0 4px rgba(79,138,91,.15)}
+.done{display:grid;gap:10px;padding:26px 22px;background:var(--paper);border-radius:4px}
+.done h4{margin:0;font-family:var(--f-display);font-weight:400;font-size:1.7rem}
+.wishes{display:grid;gap:0;margin-top:8px;max-height:520px;overflow:auto;padding-right:6px}
+.wish{padding:18px 0;border-top:1px solid var(--line-lt);display:grid;gap:4px}
+.wish .who{font-family:var(--f-display);font-size:1.2rem}
+.wish .msg{color:var(--on-light-dim);overflow-wrap:anywhere;white-space:pre-line}
+.wish .t{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.16em;color:#9a8b7a;text-transform:uppercase}
+.empty{padding:22px 0;border-top:1px solid var(--line-lt);color:var(--on-light-dim);font-style:italic}
+.share-row{margin-top:clamp(56px,8vw,90px);padding-top:32px;border-top:1px solid var(--line-lt);display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+.share-row p{font-family:var(--f-display);font-size:clamp(1.4rem,4.5vw,2rem);max-width:24ch}
+.share-row .acts{display:flex;flex-wrap:wrap;gap:10px}
+.owner{margin-top:48px;padding:24px;border:1px dashed var(--gold-ink);border-radius:4px;display:grid;gap:16px}
+.owner .row{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}
+.owner .row .field{flex:1 1 220px}
+.owner code{font-family:var(--f-mono);font-size:.78rem;overflow-wrap:anywhere;background:var(--paper);padding:8px 10px;border-radius:3px;display:block}
+.owner table{width:100%;border-collapse:collapse;font-size:.9rem}
+.owner th,.owner td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line-lt);vertical-align:top}
+.owner th{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink);font-weight:400}
+.tbl{overflow-x:auto}
+
+/* ============ SCENE 08 · CLOSING ============ */
+#closing{min-height:100svh;display:grid;align-items:end;overflow:hidden;background:var(--night)}
+.close-media{position:absolute;inset:0}
+.close-media img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:saturate(.8) brightness(.78)}
+.close-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,12,10,.25),rgba(16,12,10,.55) 45%,var(--night) 92%)}
+.close-copy{position:relative;z-index:2;padding-block:clamp(120px,22vw,220px) clamp(60px,10vw,100px);display:grid;gap:22px}
+.close-copy .thanks{font-family:var(--f-script);font-size:clamp(3.4rem,15vw,7rem);color:var(--champagne);line-height:1}
+.close-copy .q{font-family:var(--f-display);font-style:italic;font-size:clamp(1.3rem,4.6vw,2rem);max-width:28ch;line-height:1.3}
+.close-copy .sig{font-family:var(--f-display);font-size:clamp(2.2rem,8vw,3.6rem);letter-spacing:-.01em}
+.credits{position:relative;height:220px;overflow:hidden;margin-top:30px;-webkit-mask:linear-gradient(transparent,#000 22%,#000 78%,transparent);mask:linear-gradient(transparent,#000 22%,#000 78%,transparent);max-width:520px}
+.credits-roll{display:grid;gap:18px;text-align:center;animation:roll 34s linear infinite;padding-top:220px}
+.credits-roll div{display:grid;gap:2px}
+.credits-roll .r{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.22em;color:var(--on-dark-dim);text-transform:uppercase}
+.credits-roll .n{font-family:var(--f-display);font-size:1.15rem}
+.credits-roll .fin{font-family:var(--f-display);font-style:italic;font-size:2.4rem;color:var(--champagne);padding-bottom:40px}
+@keyframes roll{to{transform:translateY(-100%)}}
+footer{background:var(--night);color:#7d6f60;padding-block:28px calc(90px + env(safe-area-inset-bottom,0px));text-align:center}
+
+/* ============ CONTROLS ============ */
+.dock{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translate(-50%,140%);z-index:80;display:flex;gap:8px;align-items:center;padding:6px;border-radius:999px;background:rgba(20,16,13,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line-dk);transition:transform .9s var(--ease-film)}
+.dock.show{transform:translate(-50%,0)}
+.dock .icon-btn{width:44px;height:44px;border:0;background:transparent}
+.dock .icon-btn:hover{background:var(--espresso-2)}
+.dock .scene-lbl{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-dim);padding:0 6px;min-width:96px;text-align:center;white-space:nowrap}
+.eq{display:flex;gap:2px;align-items:flex-end;height:16px}
+.eq i{width:2px;background:var(--champagne);height:4px;border-radius:1px}
+.playing .eq i{animation:eq 1s ease-in-out infinite}
+.playing .eq i:nth-child(2){animation-delay:.2s}.playing .eq i:nth-child(3){animation-delay:.45s}.playing .eq i:nth-child(4){animation-delay:.1s}
+@keyframes eq{0%,100%{height:3px}50%{height:15px}}
+#menu{position:fixed;inset:0;z-index:110;background:rgba(10,8,7,.94);backdrop-filter:blur(8px);display:grid;align-content:center;padding:var(--gutter);opacity:0;visibility:hidden;transition:opacity .45s,visibility 0s linear .45s}
+#menu.on{opacity:1;visibility:visible;transition:opacity .45s}
+#menu ol{list-style:none;margin:0 auto;padding:0;display:grid;gap:4px;width:100%;max-width:520px}
+#menu a{display:grid;grid-template-columns:44px 1fr;align-items:baseline;gap:10px;padding:10px 4px;text-decoration:none;color:var(--on-dark);border-bottom:1px solid var(--line-dk);transition:color .3s,padding .4s var(--ease-out)}
+#menu a:hover,#menu a:focus-visible{color:var(--champagne);padding-left:12px}
+#menu a .mono{color:var(--champagne)}
+#menu a span:last-child{font-family:var(--f-display);font-size:clamp(1.5rem,6vw,2.1rem)}
+#menu .close{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:var(--gutter)}
+.toast{position:fixed;left:50%;top:calc(16px + env(safe-area-inset-top,0px));transform:translate(-50%,-160%);z-index:130;background:var(--ivory);color:var(--on-light);padding:10px 18px;border-radius:999px;font-size:.9rem;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .6s var(--ease-film);max-width:calc(100% - 32px)}
+.toast.on{transform:translate(-50%,0)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;transition-delay:0s!important}
+  .grain{display:none}
+  .credits{height:auto;-webkit-mask:none;mask:none}
+  .credits-roll{padding-top:0;animation:none}
+}
+</style>
+
+</head>
+<body>
+<canvas id="grainSrc" width="180" height="180" hidden></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- SCENE 01 — THE SEALED INVITATION -->
+<div id="cover" role="dialog" aria-modal="true" aria-labelledby="coverTitle">
+  <div class="cover-top mono" aria-hidden="true"><span>Ever After</span><span id="coverCode">Reel 01</span></div>
+  <div class="cover-inner">
+    <p class="eyebrow">The Wedding of</p>
+    <h1 id="coverTitle" class="cover-names" data-k="coupleShort">Haris &amp; Tika</h1>
+    <div class="env" aria-hidden="true">
+      <div class="env-back"></div>
+      <div class="env-letter"><span data-k="coupleShort">Haris &amp; Tika</span></div>
+      <div class="env-front"></div>
+      <div class="env-flap"></div>
+      <div class="seal"><div class="seal-half l"></div><div class="seal-half r"></div><div class="seal-mono" id="sealMono">H·T</div></div>
+    </div>
+    <div>
+      <p class="mono to-label">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+      <p class="guest" id="guestName">Tamu Undangan</p>
+    </div>
+    <svg class="ornament" viewBox="0 0 120 14" fill="none" aria-hidden="true"><path d="M2 7h44M74 7h44M50 7c3-5 7-5 10 0s7 5 10 0" stroke="currentColor" stroke-width="1"/></svg>
+    <button class="btn solid open-btn" id="openBtn" type="button">Open Our Invitation</button>
+    <p class="mono" style="color:var(--on-dark-dim)" id="coverDate">Coming Soon</p>
+  </div>
+  <div class="cover-bot mono" aria-hidden="true"><span>One Love. One Story.</span><span>♪ Sound on</span></div>
+</div>
+
+<div id="leader" aria-hidden="true"><div class="leader-x"></div><div class="leader-y"></div><div class="leader-ring" id="ring"><span class="leader-num" id="leaderNum">3</span></div></div>
+
+<main id="main">
+<!-- SCENE 02 — THE CINEMATIC REVEAL -->
+<section id="hero" class="pre" aria-label="Pembukaan">
+  <div class="hero-media"><img id="heroImg" src="img/p2.jpg" alt="Haris dan Tika duduk berdampingan di sofa kulit, Tika memeluk buket bunga merah muda" fetchpriority="high"></div>
+  <div class="bar t" aria-hidden="true"></div><div class="bar b" aria-hidden="true"></div>
+  <div class="hero-top mono fade-late"><span>Ever After</span><span>A Cinematic Love Story</span></div>
+  <div class="hero-copy">
+    <p class="hero-tag fade-late">One Love. One Story. Forever Begins Here.</p>
+    <h2 class="names" aria-label="Haris dan Tika">
+      <span class="line n1" aria-hidden="true" data-split="Haris"></span>
+      <span class="line n2" aria-hidden="true"><span class="ch amp" style="transition-delay:1.15s">&amp;</span><span data-split="Tika" data-delay="1.3"></span></span>
+    </h2>
+    <p class="billing fade-late" id="billing"></p>
+    <div class="hero-date fade-late"><span class="when" id="heroWhen">Coming Soon</span></div>
+  </div>
+  <div class="scroll-cue mono fade-late" aria-hidden="true"><i></i>Scroll</div>
+</section>
+
+<!-- SCENE 03 — OUR STORY -->
+<section id="story" class="dark pad" aria-labelledby="storyH">
+  <div class="wrap">
+    <header class="scene-head rv">
+      <span class="eyebrow">Scene 03 · Our Story</span>
+      <h2 id="storyH">Setiap adegan <em>membawa</em> kami ke sini.</h2>
+      <p>Bukan naskah yang ditulis sekaligus, melainkan potongan-potongan kecil yang ternyata saling menyambung.</p>
+    </header>
+    <div class="story-list" id="storyList"></div>
+  </div>
+</section>
+
+<!-- SCENE 04 — THE MOMENT WE CHOOSE FOREVER -->
+<section id="vow" class="light pad" aria-labelledby="vowH">
+  <div class="wrap">
+    <header class="scene-head rv">
+      <span class="eyebrow">Scene 04 · The Moment We Choose Forever</span>
+      <h2 id="vowH" class="sr">Mempelai</h2>
+      <p class="quote">Dari dua cerita yang berbeda, kami memilih satu judul untuk selamanya.</p>
+    </header>
+    <div class="couple">
+      <div class="person rv">
+        <span class="mono role">Mempelai Pria</span>
+        <span class="full" id="groomFull"></span>
+        <span class="parents" id="groomParents"></span>
+      </div>
+      <span class="and rv" aria-hidden="true">&amp;</span>
+      <div class="person rv">
+        <span class="mono role">Mempelai Wanita</span>
+        <span class="full" id="brideFull"></span>
+        <span class="parents" id="brideParents"></span>
+      </div>
+    </div>
+    <div class="countdown rv" aria-live="polite">
+      <span class="eyebrow" id="cdLabel">Menuju hari bahagia</span>
+      <div class="cd-grid" id="cdGrid">
+        <div class="cd-cell"><span class="cd-num" id="cdD">––</span><span class="cd-lbl">Hari</span></div>
+        <div class="cd-cell"><span class="cd-num" id="cdH">––</span><span class="cd-lbl">Jam</span></div>
+        <div class="cd-cell"><span class="cd-num" id="cdM">––</span><span class="cd-lbl">Menit</span></div>
+        <div class="cd-cell"><span class="cd-num" id="cdS">––</span><span class="cd-lbl">Detik</span></div>
+      </div>
+      <p class="cd-note" id="cdNote"></p>
+      <div><a class="btn solid" id="calMain" href="#" target="_blank" rel="noopener">Simpan ke Kalender</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENE 05 — THE WEDDING DETAILS -->
+<section id="details" class="night pad" aria-labelledby="detH">
+  <div class="wrap">
+    <header class="scene-head rv">
+      <span class="eyebrow">Scene 05 · The Wedding Details</span>
+      <h2 id="detH">Tiket Anda untuk <em>hari itu</em>.</h2>
+      <p>Dengan penuh hormat, kami mengharapkan kehadiran Bapak/Ibu/Saudara/i pada rangkaian acara berikut.</p>
+    </header>
+    <div class="tickets" id="tickets"></div>
+    <p class="dress rv" id="dress"></p>
+  </div>
+</section>
+
+<!-- SCENE 06 — THE GALLERY FILM -->
+<section id="gallery" class="pad" aria-labelledby="galH">
+  <div class="wrap">
+    <header class="scene-head rv">
+      <span class="eyebrow">Scene 06 · The Gallery Film</span>
+      <h2 id="galH">Satu rol film, <em>dua</em> pemeran.</h2>
+      <p>Ketuk bingkai mana pun untuk melihatnya lebih dekat.</p>
+    </header>
+    <div class="sheet rv">
+      <div class="sheet-mark mono" aria-hidden="true"><span>EVER 400 · H&amp;T</span><span id="frameCount"></span></div>
+      <div class="frames" id="frames"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENE 07 — THE GUEST EXPERIENCE -->
+<section id="guest" class="light pad" aria-labelledby="guestH">
+  <div class="wrap">
+    <header class="scene-head rv">
+      <span class="eyebrow">Scene 07 · The Guest Experience</span>
+      <h2 id="guestH">Bagian Anda dalam <em>cerita</em> ini.</h2>
+      <p>Konfirmasi kehadiran dan titipkan doa terbaik untuk kami.</p>
+    </header>
+    <div class="guest-grid">
+      <div class="rv">
+        <form class="card-form" id="rsvpForm" novalidate>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap"><h3>RSVP</h3><span class="mode" id="rsvpMode"><i></i><span>Memeriksa…</span></span></div>
+          <div class="field"><label for="rName">Nama</label><input id="rName" name="name" autocomplete="name" maxlength="60" required><span class="err" id="rNameErr"></span></div>
+          <fieldset class="field"><legend>Kehadiran</legend>
+            <div class="choice">
+              <label><input type="radio" name="attend" value="yes" id="rYes"><span>Insya Allah hadir</span></label>
+              <label><input type="radio" name="attend" value="no" id="rNo"><span>Berhalangan hadir</span></label>
+            </div><span class="err" id="rAttErr"></span>
+          </fieldset>
+          <div class="field" id="rCountWrap"><label for="rCount">Jumlah tamu</label><select id="rCount" name="count"></select></div>
+          <div class="field"><label for="rNote">Pesan (opsional)</label><textarea id="rNote" name="note" maxlength="300" rows="3"></textarea></div>
+          <div class="hp" aria-hidden="true"><label for="rWeb">Website</label><input id="rWeb" name="website" tabindex="-1" autocomplete="off"></div>
+          <div><button class="btn solid" type="submit" id="rSubmit">Kirim Konfirmasi</button></div>
+          <p class="status" id="rStatus" role="status"></p>
+        </form>
+      </div>
+      <div class="rv">
+        <form class="card-form" id="gbForm" novalidate>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap"><h3>Doa &amp; Ucapan</h3><span class="mode" id="gbMode"><i></i><span>Memeriksa…</span></span></div>
+          <div class="field"><label for="gName">Nama</label><input id="gName" name="name" autocomplete="name" maxlength="60" required><span class="err" id="gNameErr"></span></div>
+          <div class="field"><label for="gMsg">Ucapan</label><textarea id="gMsg" name="msg" maxlength="500" rows="4" required></textarea><span class="err" id="gMsgErr"></span></div>
+          <div class="hp" aria-hidden="true"><label for="gWeb">Website</label><input id="gWeb" name="website" tabindex="-1" autocomplete="off"></div>
+          <div><button class="btn solid" type="submit" id="gSubmit">Kirim Ucapan</button></div>
+          <p class="status" id="gStatus" role="status"></p>
+        </form>
+        <div class="wishes" id="wishes" aria-live="polite"></div>
+      </div>
+    </div>
+    <div class="share-row rv">
+      <p>Bagikan undangan ini kepada yang kami sayangi.</p>
+      <div class="acts">
+        <a class="btn solid" id="waShare" href="#" target="_blank" rel="noopener">Bagikan via WhatsApp</a>
+        <button class="btn" type="button" id="copyLink">Salin Tautan</button>
+      </div>
+    </div>
+    <div class="owner" id="owner" hidden>
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline"><h3 style="font-size:1.6rem">Ruang Mempelai</h3><span class="mono" style="color:var(--gold-ink)">Hanya terlihat oleh Anda</span></div>
+      <div class="row">
+        <div class="field"><label for="oGuest">Buat tautan personal untuk tamu</label><input id="oGuest" maxlength="60" placeholder="contoh: Budi Santoso"></div>
+        <button class="btn" type="button" id="oMake">Buat</button>
+      </div>
+      <code id="oLink" hidden></code>
+      <div class="row" id="oActs" hidden><button class="btn" type="button" id="oCopy">Salin</button><a class="btn solid" id="oWa" href="#" target="_blank" rel="noopener">Kirim via WhatsApp</a></div>
+      <div><span class="eyebrow" style="color:var(--gold-ink)">Rekap RSVP</span> <span id="oSum" class="mono" style="color:var(--on-light-dim)"></span></div>
+      <div class="tbl"><table><thead><tr><th>Nama</th><th>Hadir</th><th>Jml</th><th>Pesan</th></tr></thead><tbody id="oRows"><tr><td colspan="4" style="color:var(--on-light-dim)">Belum ada konfirmasi.</td></tr></tbody></table></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENE 08 — THE FINAL LOVE LETTER -->
+<section id="closing" aria-labelledby="closeH">
+  <div class="close-media"><img src="img/p6.jpg" alt="Haris dan Tika di meja makan dengan buket lili merah muda" loading="lazy"></div>
+  <div class="wrap close-copy">
+    <span class="eyebrow rv">Scene 08 · The Final Love Letter</span>
+    <h2 id="closeH" class="thanks rv">Terima kasih</h2>
+    <p class="q rv">Kehadiran dan doa Anda adalah adegan terindah yang tak akan pernah kami potong dari cerita ini.</p>
+    <p class="sig rv" data-k="coupleShort">Haris &amp; Tika</p>
+    <p class="mono rv" style="color:var(--champagne)" id="closeWhen">Coming Soon</p>
+    <div class="credits rv" aria-label="Kredit penutup"><div class="credits-roll" id="credits"></div></div>
+  </div>
+</section>
+<footer class="mono">Ever After · dibuat dengan cinta untuk <span data-k="coupleShort">Haris &amp; Tika</span></footer>
+</main>
+
+<div class="dock" id="dock">
+  <button class="icon-btn" type="button" id="menuBtn" aria-label="Daftar adegan" aria-controls="menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h10"/></svg></button>
+  <span class="scene-lbl" id="sceneLbl" aria-live="off">Scene 02</span>
+  <button class="icon-btn" type="button" id="musicBtn" aria-label="Putar musik" aria-pressed="false"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span></button>
+  <button class="icon-btn" type="button" id="topBtn" aria-label="Kembali ke atas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+</div>
+
+<nav id="menu" aria-label="Adegan" aria-hidden="true">
+  <button class="icon-btn close" type="button" id="menuClose" aria-label="Tutup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <ol>
+    <li><a href="#hero" data-go="hero"><span class="mono">02</span><span>The Reveal</span></a></li>
+    <li><a href="#story" data-go="story"><span class="mono">03</span><span>Our Story</span></a></li>
+    <li><a href="#vow" data-go="vow"><span class="mono">04</span><span>Forever</span></a></li>
+    <li><a href="#details" data-go="details"><span class="mono">05</span><span>Wedding Details</span></a></li>
+    <li><a href="#gallery" data-go="gallery"><span class="mono">06</span><span>Gallery Film</span></a></li>
+    <li><a href="#guest" data-go="guest"><span class="mono">07</span><span>RSVP &amp; Ucapan</span></a></li>
+    <li><a href="#closing" data-go="closing"><span class="mono">08</span><span>Love Letter</span></a></li>
+  </ol>
+</nav>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Galeri foto" aria-hidden="true">
+  <div class="lb-top"><span class="mono" id="lbCount">01 / 07</span><button class="icon-btn" type="button" id="lbClose" aria-label="Tutup galeri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="lb-stage" id="lbStage"><img id="lbImg" alt=""></div>
+  <div class="lb-bot">
+    <button class="icon-btn" type="button" id="lbPrev" aria-label="Foto sebelumnya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button class="icon-btn" type="button" id="lbNext" aria-label="Foto berikutnya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* =====================================================================
+   CONFIG — satu-satunya bagian yang perlu diedit.
+   Kosongkan (null) untuk data yang belum ada: tampilannya otomatis
+   berubah menjadi placeholder, tombol terkait dinonaktifkan.
+   ===================================================================== */
+const CONFIG = {
+  groom: { nick: "Haris", full: "Haris Tri Ramadhani Winoto", parents: null /* "Putra dari Bapak … & Ibu …" */ },
+  bride: { nick: "Tika",  full: "Tika Pratiwi",               parents: null /* "Putri dari Bapak … & Ibu …" */ },
+  // Tanggal & jam utama (ISO 8601 + offset zona waktu). Contoh: "2028-06-10T09:00:00+08:00"
+  weddingDate: null,
+  timeZone: "Asia/Makassar", tzLabel: "WITA",
+  events: [
+    { label: "Akad Nikah", code: "A-01", start: null, end: null, venue: null, address: null, mapsQuery: null },
+    { label: "Resepsi",    code: "R-02", start: null, end: null, venue: null, address: null, mapsQuery: null }
+  ],
+  dressCode: null,               // contoh: "Earth tone & ivory"
+  story: [
+    { img: "img/p4.jpg", alt: "Haris dan Tika berbaju merah di tribun stadion", title: "Di tribun yang sama", when: null, text: null },
+    { img: "img/p3.jpg", alt: "Haris dan Tika memakai bucket hat, berswafoto di cermin toko", title: "Hari-hari biasa", when: null, text: null },
+    { img: "img/p7.jpg", alt: "Tika berswafoto bersama Haris di kursi belakang mobil pada malam hari", title: "Perjalanan pulang", when: null, text: null },
+    { img: "img/p5.jpg", alt: "Haris dan Tika berdiri di restoran, Tika membawa buket bunga", title: "Lalu, kami memilih", when: null, text: null }
+  ],
+  gallery: [
+    { img: "img/p2.jpg", alt: "Haris dan Tika berdampingan di sofa kulit dengan buket bunga" },
+    { img: "img/p1.jpg", alt: "Haris dan Tika tersenyum, Haris membentuk tanda damai" },
+    { img: "img/p6.jpg", alt: "Haris dan Tika di meja makan dengan buket lili merah muda" },
+    { img: "img/p4.jpg", alt: "Haris dan Tika berbaju merah di tribun stadion" },
+    { img: "img/p5.jpg", alt: "Haris dan Tika berdiri di restoran dengan buket bunga" },
+    { img: "img/p3.jpg", alt: "Haris dan Tika memakai bucket hat di depan cermin" },
+    { img: "img/p7.jpg", alt: "Haris dan Tika berswafoto di mobil pada malam hari" }
+  ],
+  rsvp: { maxGuests: 2, whatsapp: null /* "6281234567890" — nomor tujuan RSVP via WhatsApp */ },
+  share: {
+    url: "https://claude.ai/artifact/1zPwxK8yVQWYtKrFXPMrmD", // tautan publik undangan
+    message: "Dengan penuh sukacita, kami mengundang Anda ke hari bahagia kami — Haris & Tika. Buka undangannya di sini:"
+  },
+  music: { src: null } // null = skor orisinal yang disintesis langsung di browser (bebas lisensi)
+};
+
+/* ============================ helpers ============================ */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const PH = (txt) => { const s = document.createElement("span"); s.className = "ph"; s.textContent = txt; return s; };
+const setText = (el, val, ph) => { el.textContent = ""; el.append(val ? document.createTextNode(val) : PH(ph)); };
+let toastT;
+function toast(msg){ const t = $("#toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("on"), 2600); }
+const short = `${CONFIG.groom.nick} & ${CONFIG.bride.nick}`;
+$$('[data-k="coupleShort"]').forEach(e => e.textContent = short);
+$("#sealMono").textContent = CONFIG.groom.nick[0] + "·" + CONFIG.bride.nick[0];
+
+const wDate = CONFIG.weddingDate ? new Date(CONFIG.weddingDate) : null;
+const validDate = wDate && !isNaN(wDate);
+const fmt = (d, o) => new Intl.DateTimeFormat("id-ID", { timeZone: CONFIG.timeZone, ...o }).format(d);
+const longDate = d => fmt(d, { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+const dotDate = d => fmt(d, { day: "2-digit", month: "2-digit", year: "numeric" }).replace(/\//g, " · ");
+const whenLbl = validDate ? dotDate(wDate) : "Coming Soon";
+["#coverDate", "#heroWhen", "#closeWhen"].forEach(s => $(s).textContent = whenLbl);
+
+/* ===================== guest personalization ===================== */
+(function guest(){
+  let raw = "";
+  try { raw = new URLSearchParams(location.search).get("to") || ""; } catch(e) {}
+  const h = decodeURIComponent((location.hash || "").slice(1));
+  if (!raw && h && !document.getElementById(h)) raw = h;
+  raw = raw.replace(/[-_.+~]+/g, " ").replace(/[^\p{L}\p{N} '&,]/gu, "").trim().slice(0, 60);
+  if (raw) $("#guestName").textContent = raw.replace(/\b\p{L}/gu, c => c.toUpperCase());
+})();
+
+/* ========================= hero building ========================= */
+function split(el, word, base){
+  [...word].forEach((c, i) => { const s = document.createElement("span"); s.className = "ch"; s.textContent = c; s.style.transitionDelay = (base + i * .07).toFixed(2) + "s"; el.append(s); });
+}
+split($('[data-split="Haris"]'), CONFIG.groom.nick, .55);
+split($('[data-split="Tika"]'), CONFIG.bride.nick, 1.3);
+$(".names").setAttribute("aria-label", `${CONFIG.groom.nick} dan ${CONFIG.bride.nick}`);
+$("#billing").innerHTML = "";
+(function billing(){
+  const b = $("#billing");
+  const parts = [["Ever After", "presents"], [CONFIG.groom.full.toUpperCase(), ""], ["and", ""], [CONFIG.bride.full.toUpperCase(), ""], ["a love story", "with the blessing of both families"], ["", "original score composed in your browser"]];
+  parts.forEach(([strong, rest]) => { if (strong) { const x = document.createElement("b"); x.textContent = strong + " "; b.append(x); } if (rest) b.append(document.createTextNode(rest + " · ")); });
+})();
+
+/* ============================ story ============================ */
+(function story(){
+  const list = $("#storyList");
+  CONFIG.story.forEach((c, i) => {
+    const art = document.createElement("article"); art.className = "chapter";
+    const fig = document.createElement("figure"); fig.className = "rv-mask";
+    const img = new Image(); img.src = c.img; img.alt = c.alt; img.loading = "lazy"; img.decoding = "async";
+    const no = document.createElement("span"); no.className = "frame-no"; no.textContent = `CH. ${String(i + 1).padStart(2, "0")}`;
+    fig.append(img, no);
+    const t = document.createElement("div"); t.className = "txt rv";
+    const when = document.createElement("span"); when.className = "mono when"; setText(when, c.when, "[Tahun / momen]");
+    const h = document.createElement("h3"); h.textContent = c.title;
+    const p = document.createElement("p"); p.className = "body"; setText(p, c.text, "[Tulis kisah bab ini: di mana, kapan, dan apa yang membuatnya berarti.]");
+    t.append(when, h, p); art.append(fig, t); list.append(art);
+  });
+})();
+
+/* ============================ couple ============================ */
+$("#groomFull").textContent = CONFIG.groom.full;
+$("#brideFull").textContent = CONFIG.bride.full;
+setText($("#groomParents"), CONFIG.groom.parents, "Putra dari [Nama Ayah] & [Nama Ibu]");
+setText($("#brideParents"), CONFIG.bride.parents, "Putri dari [Nama Ayah] & [Nama Ibu]");
+
+/* ========================== countdown ========================== */
+(function countdown(){
+  const els = { d: $("#cdD"), h: $("#cdH"), m: $("#cdM"), s: $("#cdS") };
+  const note = $("#cdNote");
+  if (!validDate) {
+    note.textContent = "Hitung mundur akan berjalan otomatis begitu tanggal pernikahan diumumkan.";
+    disable($("#calMain"), "Kalender menyusul"); return;
+  }
+  note.textContent = `${longDate(wDate)} · ${fmt(wDate, { hour: "2-digit", minute: "2-digit" })} ${CONFIG.tzLabel}`;
+  const ev = CONFIG.events.find(e => e.start) || { label: "Pernikahan", start: CONFIG.weddingDate };
+  $("#calMain").href = calUrl({ ...ev, label: `Pernikahan ${short}` });
+  const last = {};
+  function tick(){
+    let ms = wDate - Date.now();
+    if (ms <= 0) { $("#cdLabel").textContent = "Hari bahagia telah tiba"; Object.values(els).forEach(e => e.textContent = "00"); return; }
+    const v = { d: Math.floor(ms / 864e5), h: Math.floor(ms / 36e5) % 24, m: Math.floor(ms / 6e4) % 60, s: Math.floor(ms / 1e3) % 60 };
+    for (const k in v) { const s = String(v[k]).padStart(2, "0"); if (last[k] !== s) { els[k].textContent = s; if (last[k] !== undefined && !reduce) { els[k].classList.remove("tick"); void els[k].offsetWidth; els[k].classList.add("tick"); } last[k] = s; } }
+    setTimeout(tick, 1000 - (Date.now() % 1000));
+  }
+  tick();
+})();
+function disable(a, label){ a.setAttribute("aria-disabled", "true"); a.removeAttribute("href"); a.setAttribute("tabindex", "-1"); if (label) a.textContent = label; }
+function gcal(d){ return d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, ""); }
+function calUrl(e){
+  const s = new Date(e.start); const en = e.end ? new Date(e.end) : new Date(s.getTime() + 2 * 36e5);
+  const q = new URLSearchParams({ action: "TEMPLATE", text: e.label, dates: `${gcal(s)}/${gcal(en)}`, details: `Undangan pernikahan ${short}`, location: [e.venue, e.address].filter(Boolean).join(", ") });
+  return "https://calendar.google.com/calendar/render?" + q.toString();
+}
+
+/* =========================== tickets =========================== */
+(function tickets(){
+  const wrap = $("#tickets");
+  CONFIG.events.forEach((e, i) => {
+    const s = e.start ? new Date(e.start) : null, en = e.end ? new Date(e.end) : null;
+    const t = document.createElement("article"); t.className = "ticket rv";
+    t.innerHTML = `<div class="t-main"><div class="t-head"><span class="mono admit">Admit · Tamu Undangan</span><span class="mono" style="color:var(--on-light-dim)">No. ${String(i + 1).padStart(2, "0")}</span></div><h3 class="t-title"></h3><dl class="t-rows"></dl></div><div class="t-stub"><a class="btn solid" target="_blank" rel="noopener">Google Maps</a><a class="btn" target="_blank" rel="noopener">Tambah ke Kalender</a><span class="t-code"></span></div>`;
+    $(".t-title", t).textContent = e.label;
+    $(".t-code", t).textContent = e.code || "";
+    const rows = [
+      ["Hari", s ? fmt(s, { weekday: "long" }) : null, "[Hari]"],
+      ["Tanggal", s ? fmt(s, { day: "numeric", month: "long", year: "numeric" }) : null, "[Tanggal]"],
+      ["Waktu", s ? `${fmt(s, { hour: "2-digit", minute: "2-digit" })}${en ? " – " + fmt(en, { hour: "2-digit", minute: "2-digit" }) : " – selesai"} ${CONFIG.tzLabel}` : null, "[Jam mulai – selesai]"],
+      ["Tempat", e.venue, "[Nama tempat]"],
+      ["Alamat", e.address, "[Alamat lengkap]"]
+    ];
+    const dl = $(".t-rows", t);
+    rows.forEach(([k, v, ph]) => { const r = document.createElement("div"); r.className = "t-row"; const dt = document.createElement("dt"); dt.textContent = k; const dd = document.createElement("dd"); setText(dd, v, ph); r.append(dt, dd); dl.append(r); });
+    const [maps, cal] = $$(".t-stub a", t);
+    const mq = e.mapsQuery || [e.venue, e.address].filter(Boolean).join(", ");
+    if (mq) maps.href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(mq); else disable(maps, "Lokasi menyusul");
+    if (s && !isNaN(s)) cal.href = calUrl(e); else disable(cal, "Jadwal menyusul");
+    wrap.append(t);
+  });
+  const d = $("#dress");
+  if (CONFIG.dressCode) { d.innerHTML = '<span class="eyebrow">Dress code</span> '; d.append(CONFIG.dressCode); } else d.remove();
+})();
+
+/* =========================== gallery =========================== */
+const G = CONFIG.gallery;
+(function gallery(){
+  const f = $("#frames");
+  $("#frameCount").textContent = `${G.length} frames`;
+  G.forEach((g, i) => {
+    const b = document.createElement("button"); b.type = "button"; b.className = "frm"; b.setAttribute("aria-label", `Buka foto ${i + 1}: ${g.alt}`);
+    const img = new Image(); img.src = g.img; img.alt = g.alt; img.loading = "lazy"; img.decoding = "async";
+    img.onerror = () => b.remove();
+    const e = document.createElement("span"); e.className = "edge"; e.textContent = `▸ ${i + 1}${i % 2 ? "A" : ""}`;
+    b.append(img, e); b.addEventListener("click", () => openLb(i)); f.append(b);
+  });
+})();
+let lbI = 0, lbReturn = null;
+const lb = $("#lb"), lbImg = $("#lbImg");
+function showLb(i){
+  lbI = (i + G.length) % G.length;
+  lbImg.classList.add("swap");
+  setTimeout(() => { lbImg.src = G[lbI].img; lbImg.alt = G[lbI].alt; lbImg.onload = () => lbImg.classList.remove("swap"); if (lbImg.complete) lbImg.classList.remove("swap"); }, reduce ? 0 : 180);
+  $("#lbCount").textContent = `${String(lbI + 1).padStart(2, "0")} / ${String(G.length).padStart(2, "0")}`;
+}
+function openLb(i){ lbReturn = document.activeElement; showLb(i); lb.classList.add("on"); lb.setAttribute("aria-hidden", "false"); document.body.classList.add("locked"); $("#lbClose").focus(); }
+function closeLb(){ lb.classList.remove("on"); lb.setAttribute("aria-hidden", "true"); document.body.classList.remove("locked"); lbReturn && lbReturn.focus(); }
+$("#lbClose").onclick = closeLb; $("#lbPrev").onclick = () => showLb(lbI - 1); $("#lbNext").onclick = () => showLb(lbI + 1);
+$("#lbStage").addEventListener("click", e => { if (e.target.id === "lbStage") closeLb(); });
+let sx = null;
+$("#lbStage").addEventListener("touchstart", e => sx = e.touches[0].clientX, { passive: true });
+$("#lbStage").addEventListener("touchend", e => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 45) showLb(lbI + (dx < 0 ? 1 : -1)); sx = null; });
+document.addEventListener("keydown", e => {
+  if (lb.classList.contains("on")) { if (e.key === "Escape") closeLb(); if (e.key === "ArrowRight") showLb(lbI + 1); if (e.key === "ArrowLeft") showLb(lbI - 1); if (e.key === "Tab") { const f = $$("button", lb); const a = f.indexOf(document.activeElement); if (e.shiftKey && a <= 0) { e.preventDefault(); f[f.length - 1].focus(); } else if (!e.shiftKey && a === f.length - 1) { e.preventDefault(); f[0].focus(); } } }
+  else if ($("#menu").classList.contains("on") && e.key === "Escape") toggleMenu(false);
+});
+
+/* =========================== credits =========================== */
+(function credits(){
+  const c = $("#credits");
+  const rows = [["Starring", CONFIG.groom.full], ["and", CONFIG.bride.full], ["With the blessing of", "Keluarga Besar Kedua Mempelai"], ["Featuring", "Seluruh tamu undangan yang kami sayangi"], ["Original score", "Disintesis langsung di perangkat Anda"], ["Directed by", "Takdir"], ["Filmed at", "Setiap tempat yang pernah kami datangi berdua"]];
+  rows.forEach(([r, n]) => { const d = document.createElement("div"); const a = document.createElement("span"); a.className = "r"; a.textContent = r; const b = document.createElement("span"); b.className = "n"; b.textContent = n; d.append(a, b); c.append(d); });
+  const fin = document.createElement("div"); fin.innerHTML = '<span class="fin">Fin. — and so, ever after begins.</span>'; c.append(fin);
+})();
+
+/* ============================ share ============================ */
+const ON_WEB = /^https?:$/.test(location.protocol) && !/claude|anthropic|localhost|127\.0\.0\.1/.test(location.hostname);
+const shareBase = () => ON_WEB ? location.origin + "/" : (CONFIG.share.url || location.href.split("#")[0]);
+const personalLink = n => { const slug = n.replace(/[^\p{L}\p{N} ]/gu, "").trim().replace(/\s+/g, "-"); return ON_WEB ? shareBase() + "?to=" + encodeURIComponent(slug) : shareBase() + "#" + slug; };
+function waLink(text, to){ return "https://wa.me/" + (to || "") + "?text=" + encodeURIComponent(text); }
+$("#waShare").href = waLink(`${CONFIG.share.message} ${shareBase()}`);
+async function copy(text){
+  try { await navigator.clipboard.writeText(text); toast("Tautan tersalin"); }
+  catch (e) { const ta = document.createElement("textarea"); ta.value = text; document.body.append(ta); ta.select(); try { document.execCommand("copy"); toast("Tautan tersalin"); } catch (_) { toast(text); } ta.remove(); }
+}
+$("#copyLink").addEventListener("click", () => copy(shareBase()));
+
+/* ============================ music ============================ */
+const Music = (() => {
+  let ctx, master, rev, timer, nextT = 0, step = 0, on = false, audioEl = null;
+  const N = n => 440 * Math.pow(2, (n - 69) / 12);
+  // Fmaj9 – Dm9 – Bbmaj7 – Csus4/C  (orisinal, sederhana, lembut)
+  const prog = [[53, 60, 64, 67, 69, 72], [50, 57, 60, 64, 65, 69], [46, 53, 57, 62, 65, 69], [48, 55, 60, 65, 64, 67]];
+  const pat = [0, 2, 3, 4, 5, 4, 3, 2];
+  const mel = [[76, null, 74, null, 72, null, null, null], [null, null, 72, 74, 76, null, 77, null], [74, null, null, 72, 69, null, null, null], [null, 72, 74, null, 72, null, 67, null]];
+  const eighth = 60 / 66 / 2;
+  function impulse(){ const len = ctx.sampleRate * 3.2, b = ctx.createBuffer(2, len, ctx.sampleRate); for (let c = 0; c < 2; c++) { const d = b.getChannelData(c); for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2.6); } return b; }
+  function note(m, t, vel, dur, type){
+    const o = ctx.createOscillator(), o2 = ctx.createOscillator(), g = ctx.createGain(), f = ctx.createBiquadFilter();
+    o.type = type || "triangle"; o2.type = "sine"; o.frequency.value = N(m); o2.frequency.value = N(m) * 2.0;
+    f.type = "lowpass"; f.frequency.value = 2400;
+    const g2 = ctx.createGain(); g2.gain.value = .25;
+    o.connect(g); o2.connect(g2); g2.connect(g); g.connect(f); f.connect(master); f.connect(rev);
+    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vel, t + .012); g.gain.exponentialRampToValueAtTime(.0008, t + dur);
+    o.start(t); o2.start(t); o.stop(t + dur + .05); o2.stop(t + dur + .05);
+  }
+  function sched(){
+    while (nextT < ctx.currentTime + .4) {
+      const bar = Math.floor(step / 8) % 4, s = step % 8, ch = prog[bar];
+      note(ch[pat[s]] + 12, nextT, .05, 2.4);
+      if (s === 0) { note(ch[0] - 12, nextT, .09, 4.2, "sine"); note(ch[0], nextT, .03, 4, "sine"); }
+      const mm = mel[(Math.floor(step / 32) % 2 ? bar : (bar + 2) % 4)][s];
+      if (mm && step >= 32) note(mm + 12, nextT, .045, 3, "sine");
+      nextT += eighth * (s % 2 ? .94 : 1.06); step++;
+    }
+  }
+  function start(){
+    if (CONFIG.music.src) { if (!audioEl) { audioEl = new Audio(CONFIG.music.src); audioEl.loop = true; } return audioEl.play().then(() => true).catch(() => false); }
+    try {
+      if (!ctx) {
+        ctx = new (window.AudioContext || window.webkitAudioContext)();
+        master = ctx.createGain(); master.gain.value = 0; master.connect(ctx.destination);
+        rev = ctx.createConvolver(); rev.buffer = impulse(); const rg = ctx.createGain(); rg.gain.value = .55; rev.connect(rg); rg.connect(ctx.destination);
+        nextT = ctx.currentTime + .1;
+      }
+      ctx.resume();
+      master.gain.cancelScheduledValues(ctx.currentTime); master.gain.setTargetAtTime(.9, ctx.currentTime, .8);
+      clearInterval(timer); timer = setInterval(sched, 90); sched();
+      return Promise.resolve(true);
+    } catch (e) { return Promise.resolve(false); }
+  }
+  function stop(){
+    if (audioEl) { audioEl.pause(); return; }
+    if (!ctx) return;
+    master.gain.setTargetAtTime(0, ctx.currentTime, .25);
+    setTimeout(() => { clearInterval(timer); ctx.suspend(); }, 700);
+  }
+  return {
+    async set(v){ on = v; if (v) { const ok = await start(); if (!ok) { on = false; toast("Musik tidak dapat diputar di perangkat ini"); } } else stop(); ui(); },
+    get on(){ return on; }
+  };
+  function ui(){ const b = $("#musicBtn"); b.classList.toggle("playing", on); b.setAttribute("aria-pressed", String(on)); b.setAttribute("aria-label", on ? "Jeda musik" : "Putar musik"); }
+})();
+$("#musicBtn").addEventListener("click", () => Music.set(!Music.on));
+document.addEventListener("visibilitychange", () => { if (document.hidden && Music.on) { Music.set(false); Music._auto = true; } else if (!document.hidden && Music._auto) { Music._auto = false; Music.set(true); } });
+
+/* ============================ grain ============================ */
+(function grain(){
+  if (reduce) return;
+  try { const c = $("#grainSrc"), x = c.getContext("2d"), d = x.createImageData(180, 180); for (let i = 0; i < d.data.length; i += 4) { const v = Math.random() * 255; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255; } x.putImageData(d, 0, 0); $(".grain").style.backgroundImage = `url(${c.toDataURL()})`; } catch (e) {}
+})();
+
+/* ======================== opening sequence ======================== */
+document.body.classList.add("locked");
+const wait = ms => new Promise(r => setTimeout(r, ms));
+async function openInvitation(){
+  const cover = $("#cover"); $("#openBtn").disabled = true;
+  Music.set(true);
+  if (reduce) { cover.classList.add("gone"); revealHero(); return; }
+  cover.classList.add("opening"); await wait(1500);
+  const L = $("#leader"), num = $("#leaderNum"), ring = $("#ring");
+  L.classList.add("on"); cover.classList.add("gone");
+  for (const n of [3, 2, 1]) {
+    num.textContent = n; const t0 = performance.now();
+    await new Promise(res => { (function f(t){ const p = Math.min(1, (t - t0) / 520); ring.style.setProperty("--sweep", (p * 360) + "deg"); p < 1 ? requestAnimationFrame(f) : res(); })(t0); });
+  }
+  L.classList.remove("on"); revealHero();
+}
+function revealHero(){
+  document.body.classList.remove("locked");
+  const h = $("#hero"); h.classList.remove("pre"); requestAnimationFrame(() => h.classList.add("played"));
+  $("#cover").setAttribute("aria-hidden", "true");
+  setTimeout(() => $("#dock").classList.add("show"), reduce ? 0 : 2400);
+  $("#main").focus?.();
+}
+$("#openBtn").addEventListener("click", openInvitation);
+$("#openBtn").focus();
+
+/* ========================= reveal on scroll ========================= */
+if ("IntersectionObserver" in window && !reduce) {
+  document.documentElement.classList.add("armed");
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -12% 0px", threshold: .08 });
+  $$(".rv,.rv-mask").forEach(el => io.observe(el));
+  // stagger siblings
+  $$(".couple .rv").forEach((el, i) => el.style.transitionDelay = (i * .18) + "s");
+  $$(".tickets .rv").forEach((el, i) => el.style.transitionDelay = (i * .2) + "s");
+}
+
+/* ===================== parallax + scene label ===================== */
+(function scroll(){
+  const heroImg = $("#heroImg"), closeImg = $("#closing img"), lbl = $("#sceneLbl");
+  const scenes = [["hero", "Scene 02"], ["story", "Scene 03"], ["vow", "Scene 04"], ["details", "Scene 05"], ["gallery", "Scene 06"], ["guest", "Scene 07"], ["closing", "Scene 08"]].map(([id, l]) => [document.getElementById(id), l]);
+  let ticking = false;
+  function frame(){
+    ticking = false; const y = scrollY, vh = innerHeight;
+    if (!reduce && $("#hero").classList.contains("played")) {
+      if (y < vh * 1.2) heroImg.style.transform = `translate3d(0,${y * .28}px,0)`;
+      const r = closeImg.parentElement.getBoundingClientRect(); if (r.top < vh && r.bottom > 0) closeImg.style.transform = `translate3d(0,${(r.top) * -.12}px,0) scale(1.12)`;
+    }
+    let cur = scenes[0][1]; for (const [el, l] of scenes) if (el.getBoundingClientRect().top < vh * .45) cur = l;
+    if (lbl.textContent !== cur) lbl.textContent = cur;
+  }
+  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
+  setTimeout(() => { heroImg.style.transition = "none"; }, 3400);
+})();
+
+/* ============================== menu ============================== */
+function toggleMenu(v){ const m = $("#menu"); m.classList.toggle("on", v); m.setAttribute("aria-hidden", String(!v)); $("#menuBtn").setAttribute("aria-expanded", String(v)); if (v) $("#menuClose").focus(); else $("#menuBtn").focus(); }
+$("#menuBtn").onclick = () => toggleMenu(true); $("#menuClose").onclick = () => toggleMenu(false);
+$$("[data-go]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); toggleMenu(false); document.getElementById(a.dataset.go).scrollIntoView({ behavior: reduce ? "auto" : "smooth" }); }));
+$("#topBtn").onclick = () => scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+
+/* ============================ forms ============================ */
+const T0 = Date.now(); let lastSend = 0;
+const clean = (s, n) => String(s || "").replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "").replace(/\s+\n/g, "\n").trim().slice(0, n);
+function spamGuard(form, status){
+  if ($(".hp input", form).value) { status.textContent = "Terkirim."; return false; }
+  if (Date.now() - T0 < 3000) { status.className = "status bad"; status.textContent = "Mohon tunggu sebentar, lalu kirim kembali."; return false; }
+  if (Date.now() - lastSend < 15000) { status.className = "status bad"; status.textContent = "Terlalu cepat. Coba lagi dalam beberapa detik."; return false; }
+  return true;
+}
+const cnt = $("#rCount");
+for (let i = 1; i <= CONFIG.rsvp.maxGuests; i++) { const o = document.createElement("option"); o.value = i; o.textContent = i + " orang"; cnt.append(o); }
+$$('input[name="attend"]').forEach(r => r.addEventListener("change", () => { $("#rCountWrap").hidden = $("#rNo").checked; }));
+const gn = $("#guestName").textContent; if (gn && gn !== "Tamu Undangan") { $("#rName").value = gn; $("#gName").value = gn; }
+
+const Cloud = { db: null, user: null, uid: null, canWrite: false };
+const API = { on: false, checked: false, admin: null };
+const online = () => API.on || (Cloud.db && Cloud.canWrite);
+function setMode(el, on, txt){ el.classList.toggle("on", on); el.lastElementChild.textContent = txt; }
+function refreshModes(){
+  const on = online(), pending = !API.checked;
+  const off = CONFIG.rsvp.whatsapp ? "Dikirim via WhatsApp" : (pending ? "Menghubungkan…" : "Segera dibuka");
+  setMode($("#rsvpMode"), on, on ? "Tersimpan online" : off);
+  setMode($("#gbMode"), on, on ? "Tersimpan online" : off);
+}
+refreshModes();
+function rid(){
+  let r = null; try { r = localStorage.getItem("ea_rid"); } catch (e) {}
+  if (!r || !/^[a-z0-9]{16,40}$/.test(r)) { const a = new Uint8Array(12); crypto.getRandomValues(a); r = Array.from(a, b => b.toString(36).padStart(2, "0")).join("").slice(0, 24); try { localStorage.setItem("ea_rid", r); } catch (e) {} }
+  return r;
+}
+async function postJSON(url, body){
+  const r = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+  if (r.status === 429) throw Object.assign(new Error("rate"), { code: "rate" });
+  if (!r.ok) throw new Error("http " + r.status);
+  return r.json();
+}
+
+$("#rsvpForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const st = $("#rStatus"); st.className = "status"; st.textContent = "";
+  const name = clean($("#rName").value, 60), att = ($$('input[name="attend"]').find(r => r.checked) || {}).value, note = clean($("#rNote").value, 300), n = att === "yes" ? Math.min(CONFIG.rsvp.maxGuests, Math.max(1, +cnt.value || 1)) : 0;
+  $("#rNameErr").textContent = name.length < 2 ? "Mohon isi nama Anda (minimal 2 huruf)." : "";
+  $("#rAttErr").textContent = att ? "" : "Mohon pilih konfirmasi kehadiran.";
+  if (name.length < 2) return $("#rName").focus(); if (!att) return $("#rYes").focus();
+  if (!spamGuard(e.target, st)) return;
+  const btn = $("#rSubmit"); btn.disabled = true; st.textContent = "Mengirim…";
+  const msg = `RSVP Pernikahan ${short}\nNama: ${name}\nKehadiran: ${att === "yes" ? "Hadir (" + n + " orang)" : "Berhalangan hadir"}${note ? "\nPesan: " + note : ""}`;
+  const ok = () => { lastSend = Date.now(); doneCard(e.target, att === "yes" ? "Sampai jumpa di hari bahagia" : "Terima kasih atas kabarnya", att === "yes" ? `Konfirmasi ${n} orang telah kami terima, ${name}.` : `Doa Anda sudah lebih dari cukup, ${name}.`); };
+  try {
+    if (API.on) {
+      await postJSON("/api/rsvp", { rid: rid(), name, attend: att, guests: n, note, website: $("#rWeb").value });
+      try { localStorage.setItem("ea_rsvp", JSON.stringify({ name, attend: att, guests: n, note })); } catch (_) {}
+      ok();
+    } else if (Cloud.db && Cloud.canWrite && Cloud.uid) {
+      await Cloud.db.doc("rsvp/" + Cloud.uid).set({ name, attend: att, guests: n, note, t: Date.now() }); ok();
+    } else if (CONFIG.rsvp.whatsapp) {
+      lastSend = Date.now(); st.className = "status ok"; st.textContent = "Data siap. Ketuk tombol di bawah untuk mengirim lewat WhatsApp.";
+      showWa(e.target, waLink(msg, CONFIG.rsvp.whatsapp));
+    } else {
+      st.textContent = "Data Anda valid, namun RSVP online belum dibuka. Silakan kembali beberapa saat lagi.";
+    }
+  } catch (err) { st.className = "status bad"; st.textContent = err.code === "rate" ? "Terlalu banyak percobaan. Coba lagi dalam satu menit." : "Konfirmasi belum tersimpan. Periksa koneksi Anda lalu coba lagi."; }
+  btn.disabled = false;
+});
+function showWa(form, href){ let a = $(".wa-go", form); if (!a) { a = document.createElement("a"); a.className = "btn wa-go"; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Kirim via WhatsApp"; form.append(a); } a.href = href; }
+function doneCard(form, title, body){
+  const d = document.createElement("div"); d.className = "done"; d.setAttribute("tabindex", "-1");
+  const h = document.createElement("h4"); h.textContent = title; const p = document.createElement("p"); p.textContent = body;
+  const b = document.createElement("button"); b.type = "button"; b.className = "btn"; b.textContent = "Ubah konfirmasi"; b.style.justifySelf = "start";
+  b.onclick = () => { d.replaceWith(form); };
+  d.append(h, p, b); form.replaceWith(d); d.focus();
+}
+
+let WISHES = [];
+$("#gbForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const st = $("#gStatus"); st.className = "status"; st.textContent = "";
+  const name = clean($("#gName").value, 60), msg = clean($("#gMsg").value, 500);
+  $("#gNameErr").textContent = name.length < 2 ? "Mohon isi nama Anda." : "";
+  $("#gMsgErr").textContent = msg.length < 3 ? "Tuliskan ucapan Anda (minimal 3 karakter)." : "";
+  if (name.length < 2) return $("#gName").focus(); if (msg.length < 3) return $("#gMsg").focus();
+  if (!spamGuard(e.target, st)) return;
+  const btn = $("#gSubmit"); btn.disabled = true; st.textContent = "Mengirim…";
+  try {
+    if (API.on) {
+      const r = await postJSON("/api/guestbook", { name, msg, website: $("#gWeb").value });
+      lastSend = Date.now(); $("#gMsg").value = ""; st.className = "status ok"; st.textContent = "Terima kasih, ucapan Anda sudah tampil di bawah.";
+      if (r.item) { WISHES = [r.item, ...WISHES]; renderWishes(WISHES); }
+    } else if (Cloud.db && Cloud.canWrite) {
+      await Cloud.db.collection("guestbook").add({ name, msg, t: Date.now(), by: Cloud.uid || null });
+      lastSend = Date.now(); $("#gMsg").value = ""; st.className = "status ok"; st.textContent = "Terima kasih, ucapan Anda sudah tampil di bawah.";
+    } else if (CONFIG.rsvp.whatsapp) {
+      lastSend = Date.now(); st.className = "status ok"; st.textContent = "Ucapan siap dikirim lewat WhatsApp.";
+      showWa(e.target, waLink(`Ucapan untuk ${short}\nDari: ${name}\n\n${msg}`, CONFIG.rsvp.whatsapp));
+    } else {
+      st.textContent = "Ucapan Anda valid, namun buku tamu online belum dibuka. Silakan kembali beberapa saat lagi.";
+    }
+  } catch (err) { st.className = "status bad"; st.textContent = err.code === "rate" ? "Terlalu banyak percobaan. Coba lagi dalam satu menit." : "Ucapan belum tersimpan. Periksa koneksi Anda lalu coba lagi."; }
+  btn.disabled = false;
+});
+
+function renderWishes(docs){
+  const w = $("#wishes"); w.textContent = "";
+  if (!docs.length) { const p = document.createElement("p"); p.className = "empty"; p.textContent = "Belum ada ucapan. Jadilah yang pertama menitipkan doa."; w.append(p); return; }
+  docs.forEach(d => {
+    const v = (typeof d.data === "function" ? d.data() : d) || {}; const a = document.createElement("article"); a.className = "wish";
+    const n = document.createElement("span"); n.className = "who"; n.textContent = clean(v.name, 60) || "Tamu";
+    const m = document.createElement("p"); m.className = "msg"; m.textContent = clean(v.msg, 500);
+    const t = document.createElement("span"); t.className = "t"; t.textContent = v.t ? new Intl.DateTimeFormat("id-ID", { day: "numeric", month: "short", year: "numeric" }).format(new Date(v.t)) : "";
+    a.append(n, m, t); w.append(a);
+  });
+}
+renderWishes([]);
+
+/* ===================== backend: Vercel API ===================== */
+(async function api(){
+  if (!ON_WEB) { API.checked = true; refreshModes(); return; }
+  try {
+    const r = await fetch("/api/guestbook", { headers: { Accept: "application/json" } });
+    if (r.ok) { const j = await r.json(); API.on = true; WISHES = j.items || []; renderWishes(WISHES); }
+  } catch (e) {}
+  API.checked = true; refreshModes();
+  try { const prev = JSON.parse(localStorage.getItem("ea_rsvp") || "null"); if (prev && API.on) { $("#rName").value = prev.name || $("#rName").value; (prev.attend === "no" ? $("#rNo") : $("#rYes")).checked = true; $("#rCountWrap").hidden = prev.attend === "no"; if (prev.guests) cnt.value = prev.guests; $("#rNote").value = prev.note || ""; $("#rStatus").textContent = "Anda sudah pernah mengonfirmasi dari perangkat ini. Kirim ulang untuk memperbarui."; } } catch (e) {}
+  let key = null; try { key = new URLSearchParams(location.search).get("admin"); } catch (e) {}
+  if (API.on && key) adminPanel(key);
+})();
+async function adminPanel(key){
+  const r = await fetch("/api/rsvp?key=" + encodeURIComponent(key), { cache: "no-store" }).catch(() => null);
+  if (!r || !r.ok) { toast("Kunci admin tidak valid"); return; }
+  const j = await r.json();
+  ownerUI();
+  renderRsvps((j.items || []).map(v => ({ data: () => v })));
+  $("#owner").scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+}
+function ownerUI(){
+  $("#owner").hidden = false;
+  $("#oMake").onclick = () => {
+    const n = clean($("#oGuest").value, 60); if (n.length < 2) { $("#oGuest").focus(); return; }
+    const link = personalLink(n);
+    $("#oLink").textContent = link; $("#oLink").hidden = false; $("#oActs").hidden = false;
+    $("#oWa").href = waLink(`Kepada Yth. ${n},\n\n${CONFIG.share.message}\n${link}`);
+  };
+  $("#oCopy").onclick = () => copy($("#oLink").textContent);
+}
+function renderRsvps(docs){
+  const tb = $("#oRows"); tb.textContent = ""; let yes = 0, no = 0, ppl = 0;
+  docs.forEach(d => { const v = d.data() || {}; if (v.attend === "yes") { yes++; ppl += +v.guests || 1; } else no++;
+    const tr = document.createElement("tr"); [v.name, v.attend === "yes" ? "Hadir" : "Tidak", v.attend === "yes" ? v.guests : "–", v.note || ""].forEach(x => { const td = document.createElement("td"); td.textContent = x ?? ""; tr.append(td); }); tb.append(tr); });
+  if (!docs.length) { const tr = document.createElement("tr"); const td = document.createElement("td"); td.colSpan = 4; td.textContent = "Belum ada konfirmasi."; td.style.color = "var(--on-light-dim)"; tr.append(td); tb.append(tr); }
+  $("#oSum").textContent = `${yes} hadir (${ppl} orang) · ${no} berhalangan`;
+}
+
+/* ===================== backend: Claude artifact runtime ===================== */
+(async function cloud(){
+  if (ON_WEB || !window.claude || typeof window.claude.use !== "function") return;
+  try {
+    const [db, user] = await Promise.all([window.claude.use("db"), window.claude.use("user")]);
+    if (!db) return;
+    Cloud.db = db; Cloud.user = user;
+    if (user) { Cloud.uid = await user.id(); const cw = await user.can("data.write"); Cloud.canWrite = cw !== false && !!Cloud.uid; }
+    refreshModes();
+    db.collection("guestbook").orderBy("t", "desc").limit(120).onSnapshot(s => renderWishes(s.docs), () => {});
+    if (user && await user.isOwner()) { ownerUI(); db.collection("rsvp").onSnapshot(s => renderRsvps(s.docs), () => { $("#oSum").textContent = "Rekap tidak dapat dimuat."; }); }
+  } catch (e) {}
+})();
+</script>
+
+</body>
+</html>
